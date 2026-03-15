@@ -19,6 +19,7 @@
 11. [Acessibilidade WCAG AA](#acessibilidade)
 12. [Deploy — Vercel](#deploy)
 13. [Checklist de Configuração](#checklist)
+14. Diagrama de arquitetura do projeto
 
 ---
 
@@ -540,5 +541,8 @@ vercel --prod
 7. **Internacionalização** — `next-intl` caso precise de espanhol/inglês
 
 ---
+## 14. Diagrama de arquitetura 
+
+
 
 *Documentação gerada para o projeto Mendes & Favaro — v1.0.0*
