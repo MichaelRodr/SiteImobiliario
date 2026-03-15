@@ -543,6 +543,6 @@ vercel --prod
 ---
 ## 14. Diagrama de arquitetura 
 
-
+![Diagrama]([url_ou_caminho_da_imagem.jpg](https://github.com/MichaelRodr/SiteImobiliario/blob/main/Public/img/Diagrama.svg)
 
 *Documentação gerada para o projeto Mendes & Favaro — v1.0.0*
