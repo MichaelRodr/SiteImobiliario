@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Brand CSS Variables ──────────────────────────────────────────────── */
+:root {
+  --color-brand-dark:  #162a35;
+  --color-brand-blue:  #4280a1;
+  --color-brand-light: #dce8ef;
+  --color-brand-muted: #7da8c0;
+
+  /* Glass */
+  --glass-bg:          rgba(22, 42, 53, 0.55);
+  --glass-border:      rgba(66, 128, 161, 0.25);
+  --glass-blur:        12px;
+
+  /* Spacing rhythm */
+  --section-py-desktop: 96px;
+  --section-py-mobile:  56px;
+}
+
+/* ─── Base Reset ───────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-color: #f8f9fa;
+  color: var(--color-brand-dark);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Focus Visible (WCAG AA) ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--color-brand-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Glassmorphism Utilities ──────────────────────────────────────────── */
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Section wrapper */
+  .section-wrapper {
+    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+
+  /* Heading utilities */
+  .heading-xl {
+    @apply font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
+  }
+
+  .heading-lg {
+    @apply font-display text-3xl sm:text-4xl font-bold leading-snug;
+  }
+
+  .heading-md {
+    @apply font-display text-2xl sm:text-3xl font-semibold leading-snug;
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg
+           bg-brand-blue text-white font-semibold text-base
+           transition-all duration-200 hover:bg-brand-dark
+           focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2
+           active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Outline CTA button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg
+           border-2 border-brand-blue text-brand-blue font-semibold text-base
+           transition-all duration-200 hover:bg-brand-blue hover:text-white
+           focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2
+           active:scale-[0.98] disabled:opacity-50;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-md
+           transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Form input */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 bg-white
+           text-brand-dark placeholder-gray-400 text-base
+           transition-colors duration-150
+           focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20
+           invalid:border-red-400;
+  }
+
+  /* Scroll reveal — hidden until JS/CSS fires */
+  .reveal {
+    @apply opacity-0 translate-y-6 transition-all duration-700 ease-out;
+  }
+
+  .reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* ─── Swiper overrides ─────────────────────────────────────────────────── */
+.swiper-pagination-bullet {
+  background: var(--color-brand-blue) !important;
+  opacity: 0.45;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  transform: scale(1.25);
+}
+
+/* ─── Lightbox overrides ───────────────────────────────────────────────── */
+.yarl__container {
+  background: rgba(22, 42, 53, 0.96) !important;
+}
+
+/* ─── Custom scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: #f1f1f1; }
+::-webkit-scrollbar-thumb  { background: var(--color-brand-muted); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-blue); }
+
+/* ─── Print ─────────────────────────────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────  */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
