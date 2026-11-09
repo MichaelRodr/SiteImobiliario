@@ -56,6 +56,7 @@ export interface PropertyFilter {
   bathrooms?: number
   garages?: number
   neighborhood?: string
+  highlight?: boolean
   features?: string[]
   sortBy?: 'newest' | 'price_asc' | 'price_desc' | 'area_desc'
   page?: number

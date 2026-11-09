@@ -48,14 +48,11 @@ mendes-favaro/
 │   │       ├── properties/
 │   │       │   ├── PropertyCard.tsx  # Card de imóvel (favoritar, compartilhar, WA)
 │   │       │   └── PropertyFilters.tsx # Filtros avançados com URL sync
-│   │       ├── calculator/
-│   │       │   └── FinancingCalculator.tsx  # Calculadora Price em tempo real
 │   │       ├── chatbot/
 │   │       │   └── WhatsAppChatbot.tsx      # Widget chatbot completo
 │   │       └── ContactForm.tsx       # Formulário de contato com Zod
 │   ├── lib/
 │   │   ├── config.ts                 # ⭐ Single source of truth
-│   │   ├── financing.ts              # Cálculo financeiro (função pura)
 │   │   ├── seo/metadata.ts           # Gerador de metadata Next.js
 │   │   ├── schema/index.ts           # JSON-LD generators (Schema.org)
 │   │   └── analytics/index.tsx       # GTM + GA4 + FB Pixel helpers
@@ -84,7 +81,6 @@ Cada arquivo tem uma única responsabilidade clara:
 | Arquivo | Responsabilidade |
 |---------|-----------------|
 | `lib/config.ts` | Única fonte de verdade para configurações da marca |
-| `lib/financing.ts` | Somente cálculo matemático de financiamento |
 | `lib/seo/metadata.ts` | Somente geração de metadata SEO |
 | `lib/schema/index.ts` | Somente criação de JSON-LD |
 | `lib/analytics/index.tsx` | Somente eventos de rastreamento |
@@ -230,11 +226,6 @@ WA_NOTIFY_NUMBER              # Número que receberá notificações de leads
 - Botão WhatsApp com contexto do imóvel pré-preenchido
 - Rastreamento FB Pixel e GA4 nos eventos
 
-### FinancingCalculator
-- Cálculo pelo Sistema Price (parcela constante)
-- Todos os sliders com `aria-valuemin/max/now/text`
-- Atualização em tempo real via `useMemo`
-- Botão envia simulação formatada pelo WhatsApp
 
 ### WhatsAppChatbot
 - Fluxo em árvore de decisão (7 etapas)

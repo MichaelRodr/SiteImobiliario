@@ -4,7 +4,6 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { PropertyCard } from '@/components/features/properties/PropertyCard'
 import { PropertyFilters } from '@/components/features/properties/PropertyFilters'
-import { FinancingCalculator } from '@/components/features/calculator/FinancingCalculator'
 import { WhatsAppChatbot } from '@/components/features/chatbot/WhatsAppChatbot'
 import { propertyService } from '@/services/properties'
 import { generatePageMetadata } from '@/lib/seo/metadata'
@@ -132,10 +131,6 @@ export default async function ImoveisPage({ searchParams }: { searchParams: Sear
             </div>
           </div>
 
-          {/* Calculator */}
-          <div className="mt-16">
-            <FinancingCalculator />
-          </div>
         </div>
       </main>
 

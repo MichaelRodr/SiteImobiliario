@@ -4,7 +4,6 @@ import { Suspense } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { PropertyCard } from '@/components/features/properties/PropertyCard'
-import { FinancingCalculator } from '@/components/features/calculator/FinancingCalculator'
 import { WhatsAppChatbot } from '@/components/features/chatbot/WhatsAppChatbot'
 import { generatePageMetadata } from '@/lib/seo/metadata'
 import { buildFAQSchema, buildRealEstateAgentSchema, JsonLd } from '@/lib/schema'
@@ -145,13 +144,6 @@ export default async function HomePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ── Calculator ────────────────────────────────────────────────── */}
-        <section className="py-20 lg:py-28 bg-white" aria-label="Calculadora de financiamento">
-          <div className="section-wrapper max-w-4xl">
-            <FinancingCalculator />
           </div>
         </section>
 

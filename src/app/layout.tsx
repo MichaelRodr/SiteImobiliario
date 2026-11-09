@@ -1,29 +1,14 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
 import { GTMScript, GTMNoScript, FBPixelScript } from '@/lib/analytics'
 import { buildRealEstateAgentSchema, JsonLd } from '@/lib/schema'
 import { generatePageMetadata } from '@/lib/seo/metadata'
 import '@/styles/globals.css'
 
-const fontDisplay = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-display',
-  display: 'swap',
-})
-
-const fontBody = Source_Sans_3({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-body',
-  display: 'swap',
-})
-
 export const metadata: Metadata = generatePageMetadata({})
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${fontDisplay.variable} ${fontBody.variable}`}>
+    <html lang="pt-BR">
       <head>
         <GTMScript />
         <FBPixelScript />

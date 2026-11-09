@@ -71,6 +71,9 @@ export class PropertyService implements IPropertyService {
     if (filter.purpose && filter.purpose !== 'all')
       results = results.filter(p => p.purpose === filter.purpose)
 
+    if (filter.highlight !== undefined)
+      results = results.filter(p => p.highlight === filter.highlight)
+
     if (filter.priceMin !== undefined)
       results = results.filter(p => p.price >= filter.priceMin!)
 

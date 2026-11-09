@@ -3,12 +3,10 @@ import Image from 'next/image'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppChatbot } from '@/components/features/chatbot/WhatsAppChatbot'
-import { FinancingCalculator } from '@/components/features/calculator/FinancingCalculator'
 import { propertyService } from '@/services/properties'
 import { whatsAppService } from '@/services/whatsapp'
 import { generatePropertyMetadata } from '@/lib/seo/metadata'
 import { buildPropertySchema, buildBreadcrumbSchema, JsonLd } from '@/lib/schema'
-import { formatCurrency } from '@/lib/financing'
 import { trackPropertyView } from '@/lib/analytics'
 
 interface Props {
@@ -161,8 +159,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                 </div>
               </section>
 
-              {/* Financing calculator */}
-              <FinancingCalculator defaultValue={property.price} />
             </div>
 
             {/* Sidebar */}
@@ -177,7 +173,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                   )}
                   <p className="text-xs text-gray-400 mb-1">{purposeLabel}</p>
                   <p className="font-display font-bold text-3xl text-brand-dark">
-                    {formatCurrency(property.price)}
+                    {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(property.price)}
                     {property.purpose === 'aluguel' && <span className="text-base text-gray-400 font-normal">/mês</span>}
                   </p>
 

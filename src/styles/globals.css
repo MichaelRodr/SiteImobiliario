@@ -8,6 +8,8 @@
   --color-brand-blue:  #4280a1;
   --color-brand-light: #dce8ef;
   --color-brand-muted: #7da8c0;
+  --font-display: Georgia, serif;
+  --font-body: Arial, sans-serif;
 
   /* Glass */
   --glass-bg:          rgba(22, 42, 53, 0.55);
